@@ -1,0 +1,12 @@
+{
+  "name": "type-intro",
+  "version": "1.0.0",
+  "description": "TypeScript course",
+  "main": "index.js",
+  "author": "YS",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+  }
+}

@@ -15,6 +15,19 @@ Block.calculateHash = (index, previousHash, timestamp, data) => {
 };
 const basisBlock = new Block(1, `asfa`, ``, `hello`, 2021);
 let blockChain = [basisBlock];
-const a = Block.calculateHash(1, `sdfa`, 123, `afasdfas`);
-console.log(a);
+const getBlockChain = () => blockChain;
+const getLatestBlock = () => blockChain[blockChain.length - 1];
+const getNewTimestamp = () => Math.round(new Date().getTime() / 1000);
+const createNewBlock = (data) => {
+    const previousBlock = getLatestBlock();
+    const newIndex = previousBlock.index + 1;
+    const newTimestamp = getNewTimestamp();
+    const newHash = Block.calculateHash(newIndex, previousBlock.hash, newTimestamp, data);
+    const newBlock = new Block(newIndex, newHash, previousBlock.hash, data, newTimestamp);
+    blockChain.push(newBlock);
+    return newBlock;
+};
+const a = createNewBlock(`hello this is my bc`);
+const b = createNewBlock(`this is sparta`);
+console.log(a, b);
 //# sourceMappingURL=index.js.map

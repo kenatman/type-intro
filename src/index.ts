@@ -1,20 +1,30 @@
-class Human {
-  public name: string;
-  public age: number;
-  public gender: string;
-  constructor(name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+import { time } from "console";
+
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
+  constructor(
+    index: number,
+    hash: string,
+    previousHash: string,
+    data: string,
+    timestamp: number
+  ) {
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.data = data;
+    this.timestamp = timestamp;
   }
 }
 
-const person = new Human(`kong`, 24, `female`);
+const basisBlock: Block = new Block(1, `asfa`, ``, `hello`, 2021);
 
-const sayHello = (hallow: Human): string => {
-  return `hello ${hallow.name}, you are ${hallow.age} years old, also you are ${hallow.gender}!!!`;
-};
+let blockChain: [Block] = [basisBlock];
 
-console.log(sayHello(person));
+console.log(blockChain);
 
 export {};
